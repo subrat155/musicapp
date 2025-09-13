@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ama Music - Your Music Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+      <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="" style="width: 100px; height: 100px;">
+            <span class="logo-text">Ama Music</span>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for songs, artists...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="menu">
+            <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            <div class="menu-content" id="menuContent">
+                <a href="#" id="loginBtn">Sign In</a>
+                <a href="#" id="signupBtn">Sign Up</a>
+                <a href="#">Favorites</a>
+                <a href="#">Odia Songs</a>
+                <a href="#">Hindi Songs</a>
+                <a href="#">English Songs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2 class="section-title">Odia Songs</h2>
+        <div class="music-grid" id="odiaSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Couple Songs</h2>
+        <div class="music-grid" id="coupleSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Hindi Songs</h2>
+        <div class="music-grid" id="hindiSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">English Songs</h2>
+        <div class="music-grid" id="englishSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Punjabi Songs</h2>
+        <div class="music-grid" id="punjabiSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Bhojpuri Songs</h2>
+        <div class="music-grid" id="bhojpuriSongs">
+            <!-- Songs will be populated by JavaScript -->
+        </div>
+
+        <h2 class="section-title">Popular Creators</h2>
+        <div class="music-grid" id="creators">
+            <!-- Creators will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="player-controls">
+            <button class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+            <button class="control-btn" id="playBtn"><i class="fas fa-play"></i></button>
+            <button class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+            <div class="song-info">
+                <div id="currentSong">Select a song to play</div>
+                <div id="currentArtist">Artist</div>
+            </div>
+            <button class="control-btn"><i class="fas fa-volume-up"></i></button>
+        </div>
+    </div>
+
+<!-- Full Music Page -->
+<div class="music-page" id="musicPage">
+  <div class="music-page-content">
+    <button class="close-btn" id="closeMusicPage">&times;</button>
+
+    <!-- Album Art -->
+    <div class="album-art">
+      <img id="albumCover" src="https://via.placeholder.com/300" alt="Album Cover">
+    </div>
+
+    <!-- Song Info -->
+    <h2 id="pageSong">Song Title</h2>
+    <p id="pageArtist">Artist Name</p>
+
+    <!-- Progress Bar -->
+    <div class="progress-container big" id="pageProgressContainer">
+      <div class="progress-bar" id="pageProgressBar"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="page-controls">
+      <button class="control-btn" id="pagePrev"><i class="fas fa-step-backward"></i></button>
+      <button class="control-btn" id="pagePlay"><i class="fas fa-play"></i></button>
+      <button class="control-btn" id="pageNext"><i class="fas fa-step-forward"></i></button>
+    </div>
+  </div>
+</div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign In</h2>
+                <button class="close-btn" id="closeLogin">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+            <div class="form-footer">
+                <p>Don't have an account? <a id="switchToSignup">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign Up</h2>
+                <button class="close-btn" id="closeSignup">&times;</button>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            <div class="form-footer">
+                <p>Already have an account? <a id="switchToLogin">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-heading">Ama Music</h3>
+                <p>Your destination for the best music experience. Discover new songs and enjoy your favorites anytime, anywhere.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <div class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Trending</a>
+                    <a href="#">New Releases</a>
+                    <a href="#">Playlists</a>
+                    <a href="#">Genres</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">Support</h3>
+                <div class="footer-links">
+                    <a href="#">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Premium</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">Legal</h3>
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Copyright</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Ama Music. All rights reserved.</p>
+        </div>
+    </footer>
+  
+
+
+    <script src="script.js">
+     
+    </script>
+</body>
+</html>
